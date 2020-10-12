@@ -1,10 +1,10 @@
-// A simple selection sort as the start for this topic
-// Time complexity: O(n2)
-// Auxiliary Space: O(1)
-// Author: Sam Lin
-// Data: 2020/10/11
+/* A simple selection sort as the start for this topic
+ Time complexity: O(n2)
+ Auxiliary Space: O(1)
+ Author: Sam Lin
+ Data: 2020/10/11 */
 
-
+#include<math.h>
 #include<stdio.h>
 
 void swap(int *a, int *b){
