@@ -1,10 +1,3 @@
-/* A simple selection sort as the start for this topic
- Time complexity: O(n2)
- Auxiliary Space: O(1)
- Author: Sam Lin
- Data: 2020/10/11 */
-
-#include<math.h>
 #include<stdio.h>
 
 void swap(int *a, int *b){
@@ -14,29 +7,30 @@ void swap(int *a, int *b){
     *b = tmp;
 }
 
-void selectSort(int *arr, int size){
-    int i, mini, j;
-    for(i=0; i<size-1; i++){
-        mini=i;
-        for(j=i+1; j<size; j++){
-           if(arr[j] < arr[mini]){
-                mini = j;   
-           }
-            swap(&arr[i], &arr[mini]);
+void select_sort(int arr[], int n){
+    int i,j,min_idx;
+    for(i = 0; i < n -1; i++){
+        min_idx = i;
+        for( j = i + 1; j < n; j++){
+            if(arr[min_idx] < arr[j]){
+                min_idx = j;   
+            }
         }
+        swap(&arr[min_idx], &arr[i]);
     }
 }
 
 void printArray(int *arr, int size){
-    for(int i = 0 ; i < size; i++){
-        printf("%d\n", *(arr+i));
+    for(int i = 0; i < size; i++){
+        printf("value in array: %d\n", arr[i]);
     }
 }
 
 int main(void){
-    int arr[] = {3,5,2,1,4,6};
-    selectSort(arr, 6);
-    printArray(arr, 6);
-
+    int arr[] = {2,1,3,5,6,8,7};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    select_sort(arr, size);
+    printArray(arr, size);
     return 0;
+
 }
